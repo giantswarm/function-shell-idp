@@ -1,11 +1,11 @@
-module github.com/crossplane-contrib/function-shell
+module github.com/giantswarm/function-shell-idp
 
 go 1.21
 
 toolchain go1.24.0
 
 require (
-	github.com/alecthomas/kong v1.6.0
+	github.com/alecthomas/kong v1.8.0
 	github.com/crossplane/crossplane-runtime v1.15.1
 	github.com/crossplane/function-sdk-go v0.2.0
 	github.com/google/go-cmp v0.6.0
