@@ -84,7 +84,8 @@ RUN curl -fsSL "https://dl.k8s.io/release/v$KUBECTL_VERSION/bin/linux/amd64/kube
 WORKDIR /tmp
 COPY --from=build /function /function
 EXPOSE 9443
-RUN addgroup -g 65532 nonroot && adduser -u 65532 -G nonroot -h /home/nonroot -S -D -s /usr/sbin/nologin nonroot
+RUN addgroup -g 2000 nonroot && adduser -u 2000 -G nonroot -h /home/nonroot -S -D -s /usr/sbin/nologin nonroot
 RUN chown -R nonroot:nonroot /tmp && chown -R nonroot:nonroot /home/nonroot
+ENV HOME=/home/nonroot
 USER nonroot:nonroot
 ENTRYPOINT ["/function"]
