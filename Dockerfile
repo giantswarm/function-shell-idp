@@ -85,5 +85,6 @@ WORKDIR /tmp
 COPY --from=build /function /function
 EXPOSE 9443
 RUN addgroup -g 65532 nonroot && adduser -u 65532 -G nonroot -h /home/nonroot -S -D -s /usr/sbin/nologin nonroot
+RUN chown -R nonroot:nonroot /tmp && chown -R nonroot:nonroot /home/nonroot
 USER nonroot:nonroot
 ENTRYPOINT ["/function"]
