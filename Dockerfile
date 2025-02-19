@@ -40,7 +40,7 @@ RUN --mount=target=. \
   GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -o /function .
 
 # Produce the Function image.
-FROM alpine:3.21.2 AS image
+FROM alpine:3.21.3 AS image
 
 # renovate: datasource=github-tags depName=kubernetes/kubernetes
 ENV KUBECTL_VERSION=1.29.11
