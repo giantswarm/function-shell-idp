@@ -118,15 +118,17 @@ func (f *Function) RunFunction(_ context.Context, req *fnv1beta1.RunFunctionRequ
 	}
 	log.Debug("Selected shell info", "shell", shell)
 	var stdout, stderr bytes.Buffer
+
 	cmd := exec.Command("/bin/"+shell, "-c", exportCmds+shellCmd)
 	cmd.Stdout = &stdout
 	cmd.Stderr = &stderr
 
+	log.Debug("Running shell command")
 	cmderr := cmd.Run()
 	sout := strings.TrimSpace(stdout.String())
 	serr := strings.TrimSpace(stderr.String())
 
-	log.Debug(shellCmd, "stdout", sout, "stderr", serr)
+	log.Debug("Command done", "stdout", sout, "stderr", serr)
 
 	err = dxr.Resource.SetValue(stdoutField, sout)
 	if err != nil {
@@ -149,5 +151,6 @@ func (f *Function) RunFunction(_ context.Context, req *fnv1beta1.RunFunctionRequ
 		}
 	}
 
+	log.Debug("Function call done")
 	return rsp, nil
 }
