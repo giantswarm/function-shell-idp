@@ -81,7 +81,7 @@ RUN curl -fsSL "https://dl.k8s.io/release/v$KUBECTL_VERSION/bin/linux/amd64/kube
   && curl -fsSL "https://github.com/gruntwork-io/boilerplate/releases/download/v${BOILERPLATE_VERSION}/boilerplate_linux_amd64" -o /usr/local/bin/boilerplate && chmod +x /usr/local/bin/boilerplate \
   && curl -fsSL "https://github.com/norwoodj/helm-docs/releases/download/v${HELM_DOCS_VERSION}/helm-docs_${HELM_DOCS_VERSION}_Linux_x86_64.tar.gz" -o /tmp/helm-docs.tar.gz && tar xzf /tmp/helm-docs.tar.gz && mv helm-docs /usr/local/bin/ && rm /tmp/helm-docs.tar.gz
 
-WORKDIR /
+WORKDIR /tmp
 COPY --from=build /function /function
 EXPOSE 9443
 RUN addgroup -g 65532 nonroot && adduser -u 65532 -G nonroot -h /home/nonroot -S -D -s /usr/sbin/nologin nonroot
