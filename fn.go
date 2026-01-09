@@ -12,6 +12,7 @@ import (
 	fnv1beta1 "github.com/crossplane/function-sdk-go/proto/v1beta1"
 	"github.com/crossplane/function-sdk-go/request"
 	"github.com/crossplane/function-sdk-go/response"
+
 	"github.com/giantswarm/function-shell-idp/input/v1alpha1"
 )
 

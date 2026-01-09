@@ -2,8 +2,9 @@ package main
 
 import (
 	"github.com/crossplane/function-sdk-go/resource"
-	"github.com/giantswarm/function-shell-idp/input/v1alpha1"
 	"k8s.io/apimachinery/pkg/util/validation/field"
+
+	"github.com/giantswarm/function-shell-idp/input/v1alpha1"
 )
 
 // ValidateParameters validates the Parameters object.
